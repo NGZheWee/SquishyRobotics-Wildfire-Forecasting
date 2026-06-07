@@ -1,51 +1,60 @@
 # Squishy Robotics - Wildfire Multimodal Forecasting
 
-This repository hosts the code, datasets, and documentation for a research project conducted under the **Berkeley Expert Systems Technologies (BEST) Lab** in collaboration with **Squishy Robotics**, UC Berkeley.  
-The project develops a **descriptor-guided multimodal forecasting framework** for wildfire spread and intensity prediction, integrating RGB, IR, and textual descriptors into an interpretable deep-learning pipeline for real-time robotic deployment.
+This repository contains my research artifacts for a **wildfire multimodal forecasting** project conducted through the **Berkeley Expert Systems Technologies (BEST) Lab** in collaboration with **Squishy Robotics**. The project explores how RGB imagery, near-infrared imagery, segmentation masks, and textual descriptors can support interpretable wildfire-spread and fire-intensity modeling for robotic situational awareness.
 
----
+Official background for the research setting is available through the [BEST Lab](https://best.berkeley.edu/) and the [Corsican Fire Database](https://pro.universita.corsica/article.php?id_art=2133&id_rub=572), the external wildfire image dataset used in this project. BEST Lab also documents Squishy Robotics' emergency-response and wildfire-monitoring context in its [Squishy Robotics coverage](https://best.berkeley.edu/2024/07/02/squishy-robotics-on-the-cover-of-soft-robotics/).
 
-## Overview
+## Contents
 
-The research was conducted as part of the **Wildfire Response Team** within the BEST Lab from **January 2025 – May 2025**.  
-The goal was to enhance the accuracy and interpretability of wildfire prediction models by integrating **multi-sensor visual data** with **textual event descriptors**, improving decision support for autonomous field robots deployed in disaster-response operations.  
-This framework forms part of Squishy Robotics’ ongoing efforts to create adaptive, AI-powered situational awareness tools for emergency environments.
+- **Datasets**: Corsican Fire Database images, ground-truth masks, helper utilities, and controlled-burn reference materials used during exploration.
+- **Repo**: Exploratory notebooks and model-development notebooks for RGB/NIR data processing, descriptor generation, and multimodal fire forecasting.
+- **Logistics**: Meeting, planning, and project-management artifacts from the research collaboration. Administrative access forms and signed agreements are intentionally excluded.
 
----
+## Research Scope
 
-## Methodology
+- Conducted exploratory analysis of the **Corsican Fire Database**, including RGB images, near-infrared images, manually extracted fire-region masks, and metadata describing fire and scene conditions.
+- Built prototype pipelines for image preprocessing, descriptor generation, model training, and late-fusion forecasting.
+- Investigated whether visual streams and text descriptors can jointly support interpretable predictions of fire area, intensity, superposition, and spread direction.
 
-### Data Preparation
+## Methods and Tools
 
-- Conducted **exploratory data analysis (EDA)** on the **Corsican Fire Database (CFDB)** to assess data sparsity, modality imbalance, and annotation gaps.  
-- Implemented **computer-vision and Gemini-based augmentation pipelines** for RGB and IR imagery, enhancing coverage and improving descriptor completeness.  
-- Normalized and synchronized multimodal data streams, aligning spatial, temporal, and descriptive metadata for downstream model training.
+- **Data preparation**: Image cleaning, RGB/NIR pairing, mask-based feature extraction, metadata normalization, and exploratory data analysis.
+- **Computer vision**: PyTorch, torchvision, EfficientNet, image transforms, and mask-derived fire metrics.
+- **Language and descriptors**: BERT-style descriptor embeddings and Gemini-assisted descriptor generation experiments.
+- **Temporal modeling**: LSTM and late-fusion model prototypes combining visual and text-derived features.
+- **Evaluation**: Accuracy reports, tolerance-based numeric evaluation, exploratory plots, and notebook-level qualitative review.
 
-### Model Architecture
+## Key Outputs
 
-- Designed a **descriptor-guided multimodal forecasting framework** combining:  
-  - **RGB and IR encoders** using **EfficientNet** and **Vision Transformer (ViT)** backbones for spatial-temporal feature extraction.  
-  - **Textual descriptor embeddings** generated from **BERT** for contextual awareness of fire conditions and metadata.  
-  - **LSTM-based late fusion** to capture temporal dynamics across visual and textual streams.  
-- Trained and evaluated models on CFDB subsets for **fire-spread trajectory** and **intensity distribution** forecasting.
+- Exploratory analysis notebooks for the Corsican wildfire imagery and metadata.
+- Prototype multimodal forecasting notebooks combining RGB, near-infrared, and descriptor features.
+- Research notes and presentation materials supporting a wildfire-response robotics research workflow.
 
-### Validation and Integration
+## How to Navigate
 
-- Assessed model performance across multimodal fusion strategies, emphasizing prediction stability and interpretability.  
-- Deployed the trained forecasting module within **Squishy Robotics’ autonomous wildfire-response platform**, enabling visual–language outputs for real-time validation.  
-- Designed the interpretability layer to provide **descriptor-conditioned attention maps** for situational transparency and field operability.
+- Start with `Repo/Corsican EDA.ipynb` for dataset exploration and descriptive analysis.
+- Use `Repo/fire_pred.ipynb` for the initial multimodal forecasting workflow.
+- Use `Repo/fire_pred_LateFusion.ipynb` for late-fusion modeling experiments.
+- Use `Datasets/Corsican Data Set/` for the local working copy of images, masks, helper functions, and dataset metadata.
 
----
+## Reproducibility Notes
 
-## Key Findings
+This repository preserves a research prototype rather than a polished software package. Some notebooks were developed in Google Colab and may contain historical output cells, local drive paths, or collaborator-specific execution metadata.
 
-- **Descriptor fusion** significantly improves forecasting robustness under sparse or incomplete sensor data conditions.  
-- The combination of **RGB–IR–textual modalities** enhances the model’s ability to capture both physical and contextual fire dynamics.  
-- Integration within the Squishy Robotics platform demonstrates the framework’s applicability to **real-world autonomous response scenarios**, supporting mission planning and early warning systems.
+To rerun Gemini-assisted cells, create a local environment variable instead of placing keys in notebooks:
 
----
+```powershell
+$env:GOOGLE_API_KEY = "your-key"
+```
 
-## Acknowledgments
+Install the approximate Python dependencies with:
 
-This research was conducted at the **Berkeley Expert Systems Technologies (BEST) Lab**, Department of Mechanical Engineering, UC Berkeley, in collaboration with **Squishy Robotics**.  
-Supervised by **Dr. Alice Agogino** and supported by the **Wildfire Response Research Team**.
+```powershell
+pip install -r requirements.txt
+```
+
+The Corsican Fire Database is an external dataset maintained by Universita di Corsica. Follow the dataset provider's access and license terms before redistributing or reusing the data.
+
+## Academic Integrity Note
+
+This repository contains my own research code, exploratory notebooks, and project artifacts, shared for portfolio and research transparency. Do not copy this work for active or future coursework, and follow your institution's academic integrity policies.

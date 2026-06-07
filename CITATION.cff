@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite this research repository and the Corsican Fire Database as appropriate."
+title: "Squishy Robotics - Wildfire Multimodal Forecasting"
+authors:
+  - family-names: Ng
+    given-names: Zhe Wee
+    orcid: ""
+repository-code: "https://github.com/NGZheWee/SquishyWildfireMultimodalForecasting"
+keywords:
+  - wildfire forecasting
+  - multimodal learning
+  - computer vision
+  - robotics
+  - Corsican Fire Database

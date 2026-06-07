@@ -1,0 +1,40 @@
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*Key.txt
+*key.txt
+*secret*
+Logistics/Access Forms/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local outputs and logs
+logs/
+*.log
+tmp/
+temp/
+
+# Model artifacts and checkpoints
+*.pt
+*.pth
+*.ckpt
+*.onnx
+checkpoints/
+runs/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

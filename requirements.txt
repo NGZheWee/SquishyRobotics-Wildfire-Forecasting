@@ -1,0 +1,14 @@
+efficientnet-pytorch
+google-generativeai
+matplotlib
+numpy
+opencv-python
+pandas
+pillow
+scikit-learn
+scipy
+tensorflow
+torch
+torchvision
+tqdm
+transformers
