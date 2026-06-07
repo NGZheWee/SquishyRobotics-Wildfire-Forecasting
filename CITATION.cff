@@ -5,7 +5,7 @@ authors:
   - family-names: Ng
     given-names: Zhe Wee
     orcid: ""
-repository-code: "https://github.com/NGZheWee/Wildfire-Multimodal-Forecasting"
+repository-code: "https://github.com/NGZheWee/SquishyRobotics-Wildfire-Forecasting"
 keywords:
   - wildfire forecasting
   - multimodal learning
